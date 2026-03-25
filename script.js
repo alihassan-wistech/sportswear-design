@@ -1,3 +1,47 @@
+// ── Hero Slider ──
+(function () {
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.slider-prev');
+  const nextBtn = document.querySelector('.slider-next');
+  let current = 0;
+  let timer;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function startAuto() {
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  function resetAuto() {
+    clearInterval(timer);
+    startAuto();
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetAuto(); }));
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  const sliderEl = document.querySelector('.hero-slider');
+  if (sliderEl) {
+    sliderEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    sliderEl.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { goTo(diff > 0 ? current + 1 : current - 1); resetAuto(); }
+    });
+  }
+
+  startAuto();
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // Mobile Navigation Toggle
