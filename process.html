@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the manufacturing process at Deesha Industries, from pattern making to global delivery.">
+    <title>Our Process | Deesha Industries</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .inner-page-header {
+            padding: 150px 0 80px;
+            background-color: #0A0A0A;
+            text-align: center;
+        }
+        .inner-page-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .inner-page-header p {
+            color: #999;
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .timeline-section {
+            background: #ffffff;
+            padding: 100px 0;
+        }
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        /* Vertical Line */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: #eaeaea;
+            transform: translateX(-50%);
+        }
+        .timeline-step {
+            position: relative;
+            margin-bottom: 60px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .timeline-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .timeline-content {
+            width: 45%;
+            background: #f9f9f9;
+            padding: 30px;
+            border: 1px solid #eaeaea;
+            position: relative;
+            z-index: 2;
+        }
+        .timeline-step:nth-child(odd) .timeline-content {
+            text-align: right;
+        }
+        .timeline-step:nth-child(even) .timeline-content {
+            text-align: left;
+        }
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: #0A0A0A;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            z-index: 3;
+            border: 5px solid white;
+        }
+        .timeline-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .timeline-content p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 30px;
+            }
+            .timeline-step {
+                flex-direction: column !important;
+                align-items: flex-end;
+            }
+            .timeline-content {
+                width: calc(100% - 80px);
+                text-align: left !important;
+            }
+            .timeline-number {
+                left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">DEESHA INDUSTRIES<span class="dot">.</span></a>
+            
+            <div class="nav-links">
+                <a href="products.html">Products</a>
+                <a href="oem.html">OEM/Private Label</a>
+                <a href="process.html" class="active">Our Process</a>
+                <a href="quality.html">Quality</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="btn btn-primary nav-btn">Get a Quote</a>
+            </div>
+
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay">
+        <div class="mobile-nav-links">
+            <a href="products.html">Products</a>
+            <a href="oem.html">OEM/Private Label</a>
+            <a href="process.html">Our Process</a>
+            <a href="quality.html">Quality</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="inner-page-header">
+        <div class="container fade-up">
+            <span class="section-label dark">— METHODOLOGY</span>
+            <h1>Our Process</h1>
+            <p>A transparent, systematic approach to custom manufacturing, ensuring zero surprises and perfect results.</p>
+        </div>
+    </header>
+
+    <!-- Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="text-center mb-5 fade-up">
+                <span class="section-label">— HOW IT WORKS</span>
+                <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; text-transform: uppercase;">From Concept to Reality</h2>
+            </div>
+            
+            <div class="timeline-container mt-5">
+                
+                <!-- Step 1 -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-content">
+                        <h3>Consultation & Tech Pack</h3>
+                        <p>We review your designs, tech packs, or reference images. We discuss fabric choices, sizing, branding placements, and provide a clear quote and timeline.</p>
+                    </div>
+                    <div class="timeline-number">01</div>
+                    <div style="width: 45%;"></div> <!-- Empty div for layout -->
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-content">
+                        <h3>Pattern Making</h3>
+                        <p>Our expert CAD pattern makers create precise digital patterns tailored to your required size charts, ensuring a consistent and accurate fit across all sizes.</p>
+                    </div>
+                    <div class="timeline-number">02</div>
+                    <div style="width: 45%;"></div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-content">
+                        <h3>Pre-Production Sample</h3>
+                        <p>Before any bulk manufacturing begins, we create a physical sample. We ship this to you for inspection. You approve the fit, fabric, and print, or request modifications.</p>
+                    </div>
+                    <div class="timeline-number">03</div>
+                    <div style="width: 45%;"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-content">
+                        <h3>Sourcing & Cutting</h3>
+                        <p>Upon sample approval, bulk fabric is sourced and inspected. The fabric is then precision-cut using automated laser cutters to match the approved patterns perfectly.</p>
+                    </div>
+                    <div class="timeline-number">04</div>
+                    <div style="width: 45%;"></div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-content">
+                        <h3>Printing & Sewing</h3>
+                        <p>Fabric panels undergo sublimation, screen printing, or embroidery. Finally, our skilled stitching teams assemble the panels using reinforced stitching techniques.</p>
+                    </div>
+                    <div class="timeline-number">05</div>
+                    <div style="width: 45%;"></div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-content">
+                        <h3>QC, Packing & Delivery</h3>
+                        <p>Every piece goes through strict QC. They are pressed, tagged, folded, and packed into custom polybags. The cargo is then dispatched via DHL, FedEx, or freight.</p>
+                    </div>
+                    <div class="timeline-number">06</div>
+                    <div style="width: 45%;"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo text-white">DEESHA INDUSTRIES<span class="dot">.</span></a>
+                    <p class="mt-3 text-muted">Precision sportswear manufacturing from Sialkot to the world.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="products.html">Products</a>
+                    <a href="oem.html">OEM / Private Label</a>
+                    <a href="process.html">Our Process</a>
+                    <a href="quality.html">Quality</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="#">Sports Uniforms</a>
+                    <a href="#">Activewear</a>
+                    <a href="#">Women's Sportswear</a>
+                    <a href="#">Kids & Youth Wear</a>
+                    <a href="#">Leisurewear</a>
+                    <a href="#">Accessories</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Sialkot, Pakistan</p>
+                    <p><a href="mailto:info@deeshaindustries.com">info@deeshaindustries.com</a></p>
+                    <p>Mon-Sat, 9am-6pm PKT</p>
+                </div>
+            </div>
+            <div class="footer-bottom mt-5">
+                <p>&copy; 2026 Deesha Industries. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

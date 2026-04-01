@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse Deesha Industries catalog of custom sportswear, activewear, and team uniforms.">
+    <title>Products | Deesha Industries</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .inner-page-header {
+            padding: 150px 0 80px;
+            background-color: #0A0A0A;
+            text-align: center;
+        }
+        .inner-page-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .inner-page-header p {
+            color: #999;
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .products-page-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        @media (max-width: 991px) {
+            .products-page-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Sidebar Styling */
+        .sidebar {
+            background: #ffffff;
+            padding: 30px;
+            border: 1px solid #eaeaea;
+            position: sticky;
+            top: 100px;
+        }
+        .search-box {
+            display: flex;
+            margin-bottom: 40px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-right: none;
+            outline: none;
+            font-family: inherit;
+        }
+        .search-box button {
+            padding: 12px 15px;
+            background: #0A0A0A;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .category-filter h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0A0A0A;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .category-list li {
+            margin-bottom: 12px;
+        }
+        .category-list a {
+            color: #555;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+        .category-list a:hover, .category-list a.active {
+            color: #0A0A0A;
+            font-weight: 600;
+        }
+        .category-list span.count {
+            color: #999;
+            font-size: 0.85rem;
+        }
+        
+        /* Pagination Styling */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 60px;
+        }
+        .page-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            height: 40px;
+            padding: 0 12px;
+            border: 1px solid #eaeaea;
+            color: #0A0A0A;
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .page-link:hover {
+            border-color: #0A0A0A;
+        }
+        .page-link.active {
+            background: #0A0A0A;
+            color: #fff;
+            border-color: #0A0A0A;
+        }
+        .page-link.disabled {
+            color: #ccc;
+            pointer-events: none;
+            border-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">DEESHA INDUSTRIES<span class="dot">.</span></a>
+            
+            <div class="nav-links">
+                <a href="products.html" class="active">Products</a>
+                <a href="oem.html">OEM/Private Label</a>
+                <a href="process.html">Our Process</a>
+                <a href="quality.html">Quality</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="btn btn-primary nav-btn">Get a Quote</a>
+            </div>
+
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay">
+        <div class="mobile-nav-links">
+            <a href="products.html">Products</a>
+            <a href="oem.html">OEM/Private Label</a>
+            <a href="process.html">Our Process</a>
+            <a href="quality.html">Quality</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="inner-page-header">
+        <div class="container fade-up">
+            <span class="section-label dark">— ARCHIVE</span>
+            <h1>Our Products</h1>
+            <p>Explore our comprehensive range of custom-manufactured sportswear, team uniforms, and activewear.</p>
+        </div>
+    </header>
+
+    <!-- Products Archive -->
+    <section class="section-padding bg-white">
+        <div class="container products-page-container">
+            
+            <!-- Sidebar -->
+            <aside class="sidebar fade-up">
+                <!-- Search -->
+                <form class="search-box" action="#" method="get">
+                    <input type="text" placeholder="Search products..." name="s">
+                    <button type="submit" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Categories -->
+                <div class="category-filter">
+                    <h3>Categories</h3>
+                    <ul class="category-list">
+                        <li><a href="#" class="active">All Products <span class="count">(124)</span></a></li>
+                        <li><a href="#">Sports Uniforms <span class="count">(45)</span></a></li>
+                        <li><a href="#">Activewear <span class="count">(32)</span></a></li>
+                        <li><a href="#">Women's Sportswear <span class="count">(24)</span></a></li>
+                        <li><a href="#">Kids & Youth Wear <span class="count">(12)</span></a></li>
+                        <li><a href="#">Leisurewear <span class="count">(15)</span></a></li>
+                        <li><a href="#">Accessories <span class="count">(6)</span></a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content Grid -->
+            <div class="products-main">
+                <div class="products-grid">
+                    <!-- Product Card 1 -->
+                    <div class="product-card fade-up">
+                        <div class="product-img placeholder-box light">
+                            <span>[SOCCER KIT]</span>
+                        </div>
+                        <h3>Pro Soccer Kits</h3>
+                        <p>Sublimated football uniforms with moisture-wicking technology.</p>
+                        <a href="contact.html" class="explore-link">Inquire Now →</a>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="product-card fade-up delay-1">
+                        <div class="product-img placeholder-box light">
+                            <span>[BASKETBALL]</span>
+                        </div>
+                        <h3>Basketball Reversibles</h3>
+                        <p>Lightweight, breathable mesh uniforms for on-court performance.</p>
+                        <a href="contact.html" class="explore-link">Inquire Now →</a>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="product-card fade-up delay-2">
+                        <div class="product-img placeholder-box light">
+                            <span>[GYM WEAR]</span>
+                        </div>
+                        <h3>Performance T-Shirts</h3>
+                        <p>4-way stretch activewear tees for intense gym sessions.</p>
+                        <a href="contact.html" class="explore-link">Inquire Now →</a>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div class="product-card fade-up">
+                        <div class="product-img placeholder-box light">
+                            <span>[LEGGINGS]</span>
+                        </div>
+                        <h3>Seamless Leggings</h3>
+                        <p>High-waisted, squat-proof leggings for women's fitness.</p>
+                        <a href="contact.html" class="explore-link">Inquire Now →</a>
+                    </div>
+                    <!-- Product Card 5 -->
+                    <div class="product-card fade-up delay-1">
+                        <div class="product-img placeholder-box light">
+                            <span>[TRACKSUIT]</span>
+                        </div>
+                        <h3>Warm-up Tracksuits</h3>
+                        <p>Polyester fleece tracksuits tailored for team travels and warm-ups.</p>
+                        <a href="contact.html" class="explore-link">Inquire Now →</a>
+                    </div>
+                    <!-- Product Card 6 -->
+                    <div class="product-card fade-up delay-2">
+                        <div class="product-img placeholder-box light">
+                            <span>[HOODIE]</span>
+                        </div>
+                        <h3>Heavyweight Hoodies</h3>
+                        <p>Premium cotton-blend hoodies perfect for leisurewear brands.</p>
+                        <a href="contact.html" class="explore-link">Inquire Now →</a>
+                    </div>
+                    <!-- Product Card 7 -->
+                    <div class="product-card fade-up">
+                        <div class="product-img placeholder-box light">
+                            <span>[RUGBY]</span>
+                        </div>
+                        <h3>Rugby Jerseys</h3>
+                        <p>Reinforced stitching, heavy-duty polyester designed for contact.</p>
+                        <a href="contact.html" class="explore-link">Inquire Now →</a>
+                    </div>
+                    <!-- Product Card 8 -->
+                    <div class="product-card fade-up delay-1">
+                        <div class="product-img placeholder-box light">
+                            <span>[SPORTS BRA]</span>
+                        </div>
+                        <h3>High-Impact Sports Bras</h3>
+                        <p>Supportive and breathable women's activewear essentials.</p>
+                        <a href="contact.html" class="explore-link">Inquire Now →</a>
+                    </div>
+                    <!-- Product Card 9 -->
+                    <div class="product-card fade-up delay-2">
+                        <div class="product-img placeholder-box light">
+                            <span>[VARSITY]</span>
+                        </div>
+                        <h3>Varsity Jackets</h3>
+                        <p>Custom wool and leather sleeves for a classic aesthetic.</p>
+                        <a href="contact.html" class="explore-link">Inquire Now →</a>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination fade-up">
+                    <a href="#" class="page-link disabled">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <span style="color: #999; margin: 0 5px;">...</span>
+                    <a href="#" class="page-link">14</a>
+                    <a href="#" class="page-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo text-white">DEESHA INDUSTRIES<span class="dot">.</span></a>
+                    <p class="mt-3 text-muted">Precision sportswear manufacturing from Sialkot to the world.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="products.html">Products</a>
+                    <a href="oem.html">OEM / Private Label</a>
+                    <a href="process.html">Our Process</a>
+                    <a href="quality.html">Quality</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="#">Sports Uniforms</a>
+                    <a href="#">Activewear</a>
+                    <a href="#">Women's Sportswear</a>
+                    <a href="#">Kids & Youth Wear</a>
+                    <a href="#">Leisurewear</a>
+                    <a href="#">Accessories</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Sialkot, Pakistan</p>
+                    <p><a href="mailto:info@deeshaindustries.com">info@deeshaindustries.com</a></p>
+                    <p>Mon-Sat, 9am-6pm PKT</p>
+                </div>
+            </div>
+            <div class="footer-bottom mt-5">
+                <p>&copy; 2026 Deesha Industries. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
